@@ -1,0 +1,20 @@
+doctype 5
+html lang="en" 
+  head
+    meta charset="UTF-8"
+    title Spine Padrino
+    == css :app
+    == pusher_meta_tags
+    == js :pusher
+    javascript:
+      Pusher.host     = '#{ENV['PUSHER_WS_HOST']}';
+      Pusher.ws_port  = #{ENV['PUSHER_WS_PORT']};
+      Pusher.wss_port = #{ENV['PUSHER_WSS_PORT']};
+    == js :application      
+
+    javascript:
+      jQuery(function(){
+        new Pages({el: $("#pages")});
+      });    
+  body
+    #pages
